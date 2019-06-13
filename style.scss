@@ -1,0 +1,140 @@
+body{
+  font-family: Montserrat,sans-serif;
+  
+  > h1{
+    text-align: center;
+    margin-bottom: 40px;
+  }
+}
+
+.timeline {
+	padding: 0px 5%;
+}
+
+.timeline-item {
+	display: flex;
+	align-items: flex-start;
+  
+  > div {
+    flex: 1;
+    padding: 20px 40px;
+    
+    &:last-child {
+      text-align: left;
+      padding-bottom: 40px !important;
+    }
+  }
+  
+  &:nth-child(odd){
+    > div:first-child {
+      text-align: right;
+      position: relative;
+      
+      &::after {
+        right: -11px;
+      }
+    }
+    
+    > div:last-child {
+      text-align: left;
+      border-left: 1px solid #333;
+    }
+    
+    .timeline-content > h2 {
+      text-align: left !important;
+    }
+    
+    .timeline-date > div {
+      margin-right: 0px;
+    }
+  }
+  
+  &:nth-child(even){
+    > div:first-child {
+      order: 2;
+      text-align: left;
+      position: relative;
+      
+      &::after {
+        left: -1px;
+      }
+    }
+    
+    > div:last-child {
+      order: 1;
+      text-align: right;
+      border-right: 1px solid #333;
+    }
+    
+    .timeline-date > div {
+      margin-left: 0px;
+    }
+    
+    .timeline-content > h2 {
+      text-align: right !important;
+    }
+  }
+  
+  > div:first-child::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #18B1FF;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .timeline-date > div {
+    background-color: #18B1FF;
+    border-radius: 50px;
+    color: #ffffff;
+    text-align: center;
+    max-width: max-content;
+    margin: auto;
+    padding: 10px 20px;
+  }
+  
+  .timeline-content{
+     .fa-icon{
+      font-size: 80px;
+    }
+
+    > h2 {
+      margin: 0px;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #333333;
+    }
+  }
+  
+  &:not(:last-child) .timeline-content > .fa-icon{
+    margin-bottom: 70px;
+  }
+}
+
+@media (max-width: 767px) {
+	.timeline-item {
+		flex-direction: column;
+		border-left: 1px solid #333;
+    
+    > div {
+      border-width: 0px !important;
+      text-align: left !important;
+      order: unset !important;
+
+      &::after {
+        left: 0% !important;
+      }
+    }
+    
+    &:nth-child(odd) .timeline-content > h2 {
+      text-align: left !important;
+    }
+    
+    &:nth-child(even) .timeline-content > h2 {
+      text-align: left !important;
+    }
+	}
+}
